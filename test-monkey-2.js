@@ -1,4 +1,6 @@
+// trunk-ignore(prettier)
 /*jshint esversion: 6 */
+
 /*jshint -W030 */
 const globalThis = this;
 
@@ -40,6 +42,17 @@ function startTimeout(seconds, functionName) {
 // define any functions invoked through timeouts here or in $callback
 function exampleFunction() {
   // Bad practice to call payloads from here, should migrate to callbacks
+  if ($room.psEnabled) {
+    const notice = [
+      `Private shows are enabled in this room!`,
+      `Since Private shows are allowed, I will give you some more info on them.`,
+      `The price per minute for a private show is ${$room.psPrice}tks.`,
+      `The minimum number of minutes for a private show is ${room.psMinTime} min.`,
+      `The minimum balance required to have in order to request a private show is ${$room.psMinBalance}tks.`
+    ].join("\n");
+
+    $room.sendNotice(notice, { toUsername: $user.username });
+  }
   return $room.sendNotice(`I'll be called after 3 seconds.`);
 }
 $room.sendNotice(
