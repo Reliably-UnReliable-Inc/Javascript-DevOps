@@ -1,7 +1,9 @@
-// trunk-ignore(prettier)
+// trunk-ignore(prettier) //
+
 /*jshint esversion: 6 */
 
 /*jshint -W030 */
+
 const globalThis = this;
 
 function startPropogation() {
@@ -48,7 +50,7 @@ function exampleFunction() {
       `Since Private shows are allowed, I will give you some more info on them.`,
       `The price per minute for a private show is ${$room.psPrice}tks.`,
       `The minimum number of minutes for a private show is ${room.psMinTime} min.`,
-      `The minimum balance required to have in order to request a private show is ${$room.psMinBalance}tks.`
+      `The minimum balance required to have in order to request a private show is ${$room.psMinBalance}tks.`,
     ].join("\n");
 
     $room.sendNotice(notice, { toUsername: $user.username });
